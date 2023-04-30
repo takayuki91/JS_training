@@ -50,11 +50,23 @@
 // alert('2をかけ続けて'+ max +'を超えるのに必要だった回数は'+ count + '回です');
 
 // if文
-let i;
-let num = 0;
+// let i;
+// let num = 0;
 
-for(i=1;i<11;i++){
-  num=num + i;
+// for(i=1;i<11;i++){
+//   num=num + i;
+// }
+
+// alert('1から10まで足した結果は'+ num + 'です');
+
+// 3章
+// 引数と戻り値
+
+let alertString;
+alertString=addString("WebCamp");
+alert(alertString);
+
+function addString(strA){
+  let addStr="Hello"+strA;
+  return addStr;
 }
-
-alert('1から10まで足した結果は'+ num + 'です');
