@@ -62,11 +62,79 @@
 // 3章
 // 引数と戻り値
 
-let alertString;
-alertString=addString("WebCamp");
-alert(alertString);
+// let alertString;
+// alertString=addString("WebCamp");
+// alert(alertString);
 
-function addString(strA){
-  let addStr="Hello"+strA;
-  return addStr;
+// function addString(strA){
+//   let addStr="Hello"+strA;
+//   return addStr;
+// }
+
+// 複数の関数で表示
+
+// 入力ダイアログで値を入力
+// let promptStr = prompt("好きな文字を入力してください");
+// alert(promptStr);
+
+// 複数の関数を定義
+
+// 入力した値が表示されるだけ
+// let user_hand = prompt('ジャンケンの手をグー、チョキ、パーから選んで下さい');
+// alert('あなたの選んだ手は'+ user_hand +'です');
+
+// ランダムにする
+let user_hand = prompt('ジャンケンの手をグー、チョキ、パーから選んで下さい');  //ユーザーのジャンケンを入力
+
+let js_hand = getJShand();  //ジャンケンの手をランダムに作成する関数を呼び出す
+
+let judge = winLose(user_hand,js_hand);  //ジャンケンを比べる関数を呼び出す
+
+alert('あなたの選んだ手は'+ user_hand +'です。\nJavaScriptの選んだ手は'+ js_hand +'です。\n結果は'+ judge +'です。');
+
+function getJShand(){  //ランダムジャンケンの関数
+  let js_hand_num = Math.floor(Math.random()*3);  //乱数を生成する関数（今回は0〜2の整数値）
+  let hand_name;
+
+  if(js_hand_num == 0){
+    hand_name ="グー";
+  }else if(js_hand_num == 1){
+    hand_name ="チョキ";
+  }else if(js_hand_num == 2){
+    hand_name ="パー";
+  }
+
+  return hand_name;  //文字列を返す戻り値
+}
+
+function winLose(user,js){  //ジャンケンを比べる関数
+  let winLoseStr;
+
+  if(user =="グー"){
+    if(js =="グー"){
+      winLoseStr ="あいこ";
+    }else if(js =="チョキ"){
+      winLoseStr ="勝ち";
+    }else if(js =="パー"){
+      winLoseStr ="負け";
+    }
+  }else if(user =="チョキ"){
+    if(js =="グー"){
+      winLoseStr ="負け";
+    }else if(js =="チョキ"){
+      winLoseStr ="あいこ";
+    }else if(js =="パー"){
+      winLoseStr ="勝ち";
+    }
+  }else if(user =="パー"){
+    if(js =="グー"){
+      winLoseStr ="勝ち";
+    }else if(js =="チョキ"){
+      winLoseStr ="負け";
+    }else if(js =="パー"){
+      winLoseStr ="あいこ";
+    }
+  }
+
+  return winLoseStr;
 }
