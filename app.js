@@ -86,11 +86,22 @@
 // ランダムにする
 let user_hand = prompt('ジャンケンの手をグー、チョキ、パーから選んで下さい');  //ユーザーのジャンケンを入力
 
+//グー、チョキ、パー以外ならメッセージ
+while ((user_hand != "グー") && (user_hand != "チョキ") && (user_hand != "パー") && (user_hand != null)){
+  alert('グー・チョキ・パーのいずれかを入力して下さい');
+  user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+}
+
 let js_hand = getJShand();  //ジャンケンの手をランダムに作成する関数を呼び出す
 
 let judge = winLose(user_hand,js_hand);  //ジャンケンを比べる関数を呼び出す
 
+//キャンセルなら「またチャレンジしてね」
+if(user_hand != null){
 alert('あなたの選んだ手は'+ user_hand +'です。\nJavaScriptの選んだ手は'+ js_hand +'です。\n結果は'+ judge +'です。');
+}else{
+alert("またチャレンジしてね")
+}
 
 function getJShand(){  //ランダムジャンケンの関数
   let js_hand_num = Math.floor(Math.random()*3);  //乱数を生成する関数（今回は0〜2の整数値）
